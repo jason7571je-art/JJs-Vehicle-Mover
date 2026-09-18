@@ -1,0 +1,42 @@
+JJ's Vehicle Mover v0.16.21 - Release Notes
+============================================
+
+TESTED RELEASE
+v0.16.21 is the completed, runtime-tested release of JJ's Vehicle Mover for Car Dealer Simulator using UE4SS.
+
+WHAT IT DOES
+- Persistent Transporter -> Automation unloading.
+- Waits safely when Automation is full and automatically resumes when a bay becomes free.
+- Gives a returned Transporter priority, then resumes Underground Garage -> Automation feeding.
+- Side Parking -> Underground Garage intake.
+- Compact status UI with Automation capacity, Underground status, Transporter count and session totals.
+
+v0.16.21 FIXES / HARDENING
+- Underground sequencing now waits for the native garage retrieval/reset sequence to be idle before requesting another car.
+- Keeps a 5-second Underground cooldown as a secondary guard.
+- Corrects the garage_bool scope error found during v0.16.20 testing while preserving the garage-idle safety gate.
+- Preserves the proven Automation destination orientation; full 9/9 runtime testing completed without the previous sideways/stranded Underground-exit problem recurring.
+- Side Parking uses a 5-second grace period and re-confirms the same parked car before intake, allowing the player time to exit.
+- Compact UI is single-instance.
+- Installer does not launch the UI while the game is closed.
+- UI exits automatically after Car Dealer Simulator closes.
+- F10 hide returns focus to the game.
+- Installer backups are stored outside ue4ss\Mods to prevent a backup copy loading as a second mover.
+- Uses targeted/cached discovery with ZERO executable FindAllOf.
+
+RUNTIME VERIFICATION COMPLETED
+- Transporter car unloaded successfully to Automation.
+- Underground Garage automatically filled remaining Automation bays to 9/9.
+- No sideways/stranded Underground retrieval occurred during the full fill test.
+- Side Parking -> Underground worked automatically.
+- A manually driven Side Parking car remained safe while occupied and moved after the player exited.
+- At 9/9 Automation capacity, the Mover waited safely.
+- After the Transporter returned and two Automation bays were freed, the Transporter car received priority and filled one bay; Underground then automatically filled the other.
+- F9 remained persistent throughout the wait/resume cycle.
+- F10 UI operated normally and only one UI instance appeared.
+- UI closed automatically a few seconds after the game exited.
+
+CONTROLS
+F9  - Vehicle Mover ON/OFF
+F10 - Compact UI Show/Hide
+F6  - Diagnostic snapshot
