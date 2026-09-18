@@ -34,8 +34,7 @@ SHA-256 of the exact v1.2.0 Nexus release ZIP:
 
 ```text
 1493D4868A086A57D8EC229646F20B3889E87AF7EE06411F2E35B64F80955E9B
-
-``` id="swn00f"
+```
 
 This hash identifies the release package associated with the source published in this repository.
 
